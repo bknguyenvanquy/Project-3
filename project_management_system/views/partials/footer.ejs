@@ -1,0 +1,41 @@
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    
+    
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="/javascripts/upload.js"></script>
+
+<script src="/javascripts/validate.js"></script>
+
+<script src="/javascripts/chat.js"></script>
+
+<script>
+$("#menu-toggle").click(function(e) {
+    e.preventDefault();
+    $("#wrapper").toggleClass("toggled");
+});
+
+$("#user-of-project").on("input", (e) => {
+    let userName = e.target.value;    
+    $.ajax({
+        url: "http://localhost:3000/users/admin/list-user-json"
+    }).done((data) => {
+        // data.filter((data) => {
+        //     let userNames = data.
+        //     $("#added-list").
+        // })
+        let output = "";
+        for (let i of data) {
+            if (i.fullname.includes(userName) && userName !== "") {
+                output += `<li id="${i.id}">${i.fullname}</li>`
+            }
+            else if( userName === ''){
+                $("#added-list").empty();
+            }
+            
+        }
+        $("#added-list").html(output);
+            // $("#added-list").append(`<li>${data.fullname}</li>`)
+        })
+    })
+</script>

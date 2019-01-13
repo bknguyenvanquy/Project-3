@@ -1,0 +1,60 @@
+<% layout('layout2') %>
+<script type="text/javascript">
+    function yesOrNo(message){
+        if(window.confirm(message) == true){
+            return true;
+        }
+        return false;
+    }
+</script>
+    <div id="wrapper">
+        <% include ../partials/sidebar %>
+        
+        <div id="page-content-wrapper">
+            <% include ../partials/navbar %>
+                <div class="container-fluid main_body">
+                    <h1>List Projects</h1>
+                    <!-- <div class="ul_links">
+                        <ul>
+                            <li><a href="/">Home</a></li> |
+                            <li><a href="/companies">All Companies</a></li>
+                        </ul>
+                    </div> -->
+
+                    <div class="bodyDiv">
+                        <table class="table table-striped table-hover table-inverse table-bordered table-inverse  ">
+                            <thead class="thead-inverse">
+                                <tr>
+                                    <th> Project Name</th>
+                                    <th> Description </th>
+                                    <th> Action </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                    <% for(let project of projects){ %>
+                                    <tr>
+                                        <th scope="row"><%= project.nameProject %></th>
+                                        <th><%= project.descripProject %></th>   
+                                        <th>
+                                            <a onclick="" href="/users/update-project/<%= project._id %>">
+                                                <i class="fa fa-edit" aria-hidden="true"></i>
+                                            </a> / 
+                                            <a onclick="return yesOrNo('Are you sure???')" href="/users/delete-project/<%= project._id %>">
+                                                <i class="fa fa-remove" aria-hidden="true"></i>
+                                            </a>
+                                            
+                                        </th>  
+                                    </tr> 
+                                    <% } %>
+                                
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                </div>
+                <a href="/users/add-project" class="btn btn-block btn-primary link_btn button-plus">Add Project</a>
+        </div>
+
+    </div>

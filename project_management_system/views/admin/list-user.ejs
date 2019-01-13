@@ -1,0 +1,58 @@
+<% layout('layout2') %>
+<!-- <script type="text/javascript">
+    function yesOrNo(message){
+        if(window.confirm(message) == true){
+            return true;
+        }
+        return false;
+    }
+</script> -->
+    <div id="wrapper">
+        <% include ../partials/sidebar %>
+        
+        <div id="page-content-wrapper">
+            <% include ../partials/navbar %>
+                <div class="container-fluid main_body">
+                    <h1>List User</h1>
+                    <!-- <div class="ul_links">
+                        <ul>
+                            <li><a href="/">Home</a></li> |
+                            <li><a href="/companies">All Companies</a></li>
+                        </ul>
+                    </div> -->
+
+                    <div class="bodyDiv">
+                        <table class="table table-striped table-hover table-inverse table-bordered table-inverse  ">
+                            <thead class="thead-inverse">
+                                <tr>
+                                    <th> User Name</th>
+                                    <th> Email Name</th>
+                                    <th> Role </th>
+                                    <th> Action </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                    <% for(let user of users){ %>
+                                    <tr>
+                                        <th scope="row"><%= user.fullname %></th>
+                                        <th><%= user.email %></th> 
+                                        <th><%= user.role %></th> 
+                                        <th>
+                                            <a onclick="" href="/users/admin/update-user/<%= user._id %>">
+                                                <i class="fa fa-edit" aria-hidden="true"></i>
+                                            </a>
+                                        </th>  
+                                    </tr> 
+                                    <% } %>
+                                
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                </div>
+                <!-- <a href="/users/add-project" class="btn btn-block btn-primary link_btn button-plus">Add Project</a> -->
+        </div>
+
+    </div>

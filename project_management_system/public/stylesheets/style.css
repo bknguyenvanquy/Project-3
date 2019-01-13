@@ -1,0 +1,24 @@
+/* body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+} */
+.bodyDiv {
+  padding: 30px 40px;
+}
+
+a.btn.btn-block.btn-primary.link_btn.button-plus {
+  display: inline-block;
+  width: auto;
+  font-size: 14px;
+  font-weight: 400;
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+  padding: 6px 12px;
+  line-height: 1.42857143;
+  margin-left: 15px;
+}
